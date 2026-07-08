@@ -1,52 +1,12 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-
-const phrases = ["Desarrollador de Software", "Spring Boot", "Backend"];
+import { useState, useEffect } from "react";
 
 export function Hero() {
-  const [displayedText, setDisplayedText] = useState("");
-  const [opacity, setOpacity] = useState(1);
   const [isVisible, setIsVisible] = useState(false);
-  const currentPhraseIndexRef = useRef(0);
-  const currentCharIndexRef = useRef(0);
 
   useEffect(() => {
-    // Animación de entrada para el hero
     setIsVisible(true);
-    
-    let timeoutId: NodeJS.Timeout;
-
-    const typeText = () => {
-      if (currentCharIndexRef.current <= phrases[currentPhraseIndexRef.current].length) {
-        setDisplayedText(phrases[currentPhraseIndexRef.current].slice(0, currentCharIndexRef.current));
-        currentCharIndexRef.current++;
-        timeoutId = setTimeout(typeText, 100);
-      } else {
-        // Cuando termine de escribir, esperar 2 segundos, hacer fade out
-        timeoutId = setTimeout(() => {
-          setOpacity(0);
-          timeoutId = setTimeout(() => {
-            // Cambiar a la siguiente frase
-            currentPhraseIndexRef.current = (currentPhraseIndexRef.current + 1) % 3;
-            currentCharIndexRef.current = 0;
-            setDisplayedText("");
-            setOpacity(1);
-            // Empezar a escribir la nueva frase
-            setTimeout(typeText, 100);
-          }, 300);
-        }, 2000);
-      }
-    };
-
-    // Esperar un poco antes de empezar a escribir
-    timeoutId = setTimeout(() => {
-      typeText();
-    }, 500);
-
-    return () => {
-      if (timeoutId) clearTimeout(timeoutId);
-    };
   }, []);
 
   return (
@@ -65,12 +25,8 @@ export function Hero() {
             </h1>
 
             <div className="relative animate-fade-up-delay-200 flex justify-center lg:justify-start">
-              <div
-                className="text-xl sm:text-2xl md:text-3xl font-mono font-bold text-gray-900 bg-gradient-to-r from-gray-50 to-gray-100 px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 rounded-lg border border-gray-200 shadow-sm transition-opacity duration-300 inline-block whitespace-nowrap"
-                style={{ opacity }}
-              >
-                {displayedText}
-                <span className="animate-pulse text-blue-600">|</span>
+              <div className="text-xl sm:text-2xl md:text-3xl font-mono font-bold text-gray-900 bg-gradient-to-r from-gray-50 to-gray-100 px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 rounded-lg border border-gray-200 shadow-sm inline-block whitespace-nowrap">
+                Desarrollador de Software
               </div>
             </div>
           </div>
