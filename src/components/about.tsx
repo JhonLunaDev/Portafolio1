@@ -41,7 +41,7 @@ export function About() {
           <div className="w-96 h-[32rem] lg:w-[30rem] lg:h-[40rem] overflow-hidden rounded-3xl shadow-2xl">
             <img
               src="/me2.jpg"
-              alt="Luis Cortés"
+              alt="Jhon Alex Luna"
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
           </div>
@@ -68,12 +68,12 @@ export function About() {
                  opacity: 0 
                }}>
             <h3 className="text-2xl font-bold text-gray-900 mb-3">
-              Luis Cortés
+              Jhon Alex Luna
             </h3>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Estudiante de Inteligencia Artificial en sus últimos semestres en
-              la Universidad Autónoma del Estado de Morelos. Apasionado por la
-              programación, el desarrollo web y la ciencia de datos.
+              Desarrollador de software egresado de Cibertec en la carrera de
+              Computación e Informática. Especializado en el desarrollo de
+              aplicaciones web y backend con tecnologías modernas.
             </p>
           </div>
 
@@ -88,11 +88,11 @@ export function About() {
             <div className="space-y-2 text-gray-600">
               <p className="hover:text-gray-900 transition-colors">
                 <span className="font-semibold">
-                  Universidad Autónoma del Estado de Morelos (UAEM)
+                  Cibertec
                 </span>
               </p>
-              <p className="text-sm hover:text-gray-900 transition-colors">Licenciatura en Inteligencia Artificial</p>
-              <p className="text-sm hover:text-gray-900 transition-colors">Actualmente estudiando</p>
+              <p className="text-sm hover:text-gray-900 transition-colors">Computación e Informática</p>
+              <p className="text-sm hover:text-gray-900 transition-colors">Egresado</p>
             </div>
           </div>
 
@@ -102,20 +102,18 @@ export function About() {
                  opacity: 0 
                }}>
             <h4 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
-              <span className="inline-block w-1 h-6 bg-gray-900 rounded-full animate-pulse" /> Experiencia
+              <span className="inline-block w-1 h-6 bg-gray-900 rounded-full animate-pulse" /> Objetivo Profesional
             </h4>
             <div className="space-y-2 text-gray-600">
               <p className="hover:text-gray-900 transition-colors">
                 <span className="font-semibold">
-                  Asistente en Investigación
-                </span>{" "}
-                - UAEM CINC Morelos
+                  En búsqueda de oportunidades
+                </span>
               </p>
               <p className="text-sm hover:text-gray-900 transition-colors">
-                Proyectos en Ciencia de Datos y su aplicación en Series de
-                Tiempo (EEG, MEG, fMRI, Ritmo Cardíaco)
+                Interesado en aplicar mis conocimientos en desarrollo de software 
+                backend y frontend para crear soluciones eficientes y escalables.
               </p>
-              <p className="text-sm hover:text-gray-900 transition-colors">2025 – Actualmente</p>
             </div>
           </div>
 
@@ -129,12 +127,13 @@ export function About() {
             </h4>
             <div className="flex flex-wrap gap-2">
               {[
-                "Python",
-                "AI/ML",
-                "PyTorch",
-                "TypeScript",
-                "React",
-                "Node.js",
+                "Java",
+                "Spring Boot",
+                ".NET",
+                "PostgreSQL",
+                "SQL Server",
+                "MySQL",
+                "Desarrollo Web",
                 "Git",
               ].map((skill, index) => (
                 <span

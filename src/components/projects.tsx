@@ -30,31 +30,31 @@ export function Projects() {
   const projects = [
     {
       id: 1,
-      title: "Penguin Academy",
+      title: "Sistema de Gimnasio",
       description:
-        "Plataforma educativa especializada en Inteligencia Artificial, programación y matemáticas aplicadas.",
+        "Aplicación web para la gestión de gimnasios: control de miembros, pagos, horarios y rutinas personalizadas.",
       technologies: ["Next.js", "React", "TypeScript", "Tailwind"],
-      demo: "https://www.penguinmy.xyz/",
+      demo: "#",
       image: "/proyecto1.png",
       showOnlyDemo: true,
     },
     {
       id: 2,
-      title: "TREEJS",
+      title: "Landing Page",
       description:
-        "Aplicación web interactiva con animaciones 3D creadas con ThreeJS.",
-      technologies: ["ThreeJS", "JavaScript", "WebGL", "3D"],
-      demo: "https://treejsprojects.vercel.app/",
+        "Landing page moderna y responsiva para negocio o servicio, optimizada para conversión y SEO.",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      demo: "#",
       image: "/proyecto2.png",
       showOnlyDemo: true,
     },
     {
       id: 3,
-      title: "Entropy Evolve",
+      title: "API REST Backend",
       description:
-        "Sistema de automejora para agentes de IA, diseñado para dominios complejos con ingeniería de software como caso de prueba.",
-      technologies: ["Python", "AI", "Machine Learning"],
-      github: "https://github.com/luisjosuecortes/EntropyEvolve",
+        "API RESTful construida con Spring Boot y PostgreSQL, con autenticación JWT y documentación Swagger.",
+      technologies: ["Java", "Spring Boot", "PostgreSQL"],
+      github: "https://github.com/JhonLunaDev",
       image: "/proyecto3.png",
       showOnlyDemo: false,
     },

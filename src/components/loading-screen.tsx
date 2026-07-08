@@ -21,9 +21,9 @@ export function LoadingScreen() {
     // Animación de letras
     const lettersInterval = setInterval(() => {
       setLettersVisible((prev) => {
-        if (prev >= 14) {
+        if (prev >= 10) {
           clearInterval(lettersInterval);
-          return 14;
+          return 10;
         }
         return prev + 1;
       });

@@ -31,7 +31,7 @@ export function Services() {
     {
       id: 1,
       title: "Desarrollo Web",
-      description: "Creación de aplicaciones web modernas y responsivas con las últimas tecnologías",
+      description: "Creación de aplicaciones web modernas, responsivas y optimizadas con las últimas tecnologías frontend y backend.",
       icon: (
         <svg
           width="40"
@@ -52,8 +52,8 @@ export function Services() {
     },
     {
       id: 2,
-      title: "Inteligencia Artificial",
-      description: "Desarrollo de modelos de IA y machine learning para soluciones innovadoras",
+      title: "Backend con Spring Boot",
+      description: "Desarrollo de APIs REST robustas y escalables con Java y Spring Boot, integradas con bases de datos relacionales.",
       icon: (
         <svg
           width="40"
@@ -73,8 +73,8 @@ export function Services() {
     },
     {
       id: 3,
-      title: "Full Stack",
-      description: "Soluciones completas desde el backend hasta el frontend, optimizadas y escalables",
+      title: "Bases de Datos",
+      description: "Diseño, administración y optimización de bases de datos SQL Server, PostgreSQL y MySQL para aplicaciones empresariales.",
       icon: (
         <svg
           width="40"
@@ -86,14 +86,9 @@ export function Services() {
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <path d="M8 3H2v4h6V3z" />
-          <path d="M22 3h-6v4h6V3z" />
-          <path d="M8 13H2v4h6v-4z" />
-          <path d="M22 13h-6v4h6v-4z" />
-          <path d="M12 17v4" />
-          <path d="M16 7v4" />
-          <path d="M12 1V3" />
-          <path d="M16 11v2" />
+          <ellipse cx="12" cy="5" rx="9" ry="3" />
+          <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+          <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
         </svg>
       ),
     },
@@ -160,7 +155,7 @@ export function Services() {
 
         <div className="flex justify-center mt-12 sm:mt-16 animate-fade-up" style={{ animationDelay: "0.5s" }}>
           <a 
-            href="https://instagram.com/luiscortespenguin"
+            href="https://www.instagram.com/jhonalexlunacanchihuaman/"
             target="_blank"
             rel="noopener noreferrer"
             className="group bg-white border-2 border-black text-black px-6 py-3 sm:px-10 sm:py-5 rounded-full flex items-center gap-2 sm:gap-3 hover:bg-black hover:text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer text-base sm:text-lg font-semibold"

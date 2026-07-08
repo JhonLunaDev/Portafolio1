@@ -6,10 +6,10 @@ export function Footer() {
           {/* Columna 1 - Información */}
           <div className="text-center sm:text-left">
             <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              Luis
+              Jhon Alex
             </h3>
             <p className="text-gray-400 leading-relaxed text-sm">
-              Desarrollador Web y estudiante de Inteligencia Artificial.
+              Desarrollador de Software egresado de Cibertec.
               Creando soluciones innovadoras con código.
             </p>
           </div>
@@ -54,7 +54,7 @@ export function Footer() {
             </h4>
             <div className="flex gap-4 justify-center sm:justify-start">
               <a
-                href="https://instagram.com/luiscortespenguin"
+                href="https://www.instagram.com/jhonalexlunacanchihuaman/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-pink-500 transition-all hover:scale-110 transform duration-200"
@@ -69,7 +69,7 @@ export function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.linkedin.com/in/luis-cort%C3%A9s-penguin/"
+                href="https://www.linkedin.com/in/jhon-luna-451206315/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-500 transition-all hover:scale-110 transform duration-200"
@@ -84,7 +84,7 @@ export function Footer() {
                 </svg>
               </a>
               <a
-                href="https://github.com/luisjosuecortes"
+                href="https://github.com/JhonLunaDev"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-all hover:scale-110 transform duration-200"
@@ -105,7 +105,7 @@ export function Footer() {
         {/* Divider */}
         <div className="border-t border-gray-900 pt-6 sm:pt-8">
           <p className="text-gray-500 text-center text-xs sm:text-sm">
-            © {new Date().getFullYear()} Penguin Labs. Todos los derechos reservados.
+            © {new Date().getFullYear()} Jhon Alex Luna. Todos los derechos reservados.
           </p>
         </div>
       </div>
