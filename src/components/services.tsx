@@ -1,6 +1,32 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { services } from "@/data/portfolio";
+
+const serviceIcons = {
+  web: (
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 20V10" />
+      <path d="M18 20V12" />
+      <path d="M6 20V8" />
+      <path d="M3 4h18v4H3z" />
+    </svg>
+  ),
+  backend: (
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+      <path d="M3.27 6.96L12 12.01l8.73-5.05" />
+      <path d="M12 22.08V12" />
+    </svg>
+  ),
+  database: (
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <ellipse cx="12" cy="5" rx="9" ry="3" />
+      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+    </svg>
+  ),
+};
 
 export function Services() {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,90 +35,14 @@ export function Services() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
       { threshold: 0.2 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
+    const el = sectionRef.current;
+    if (el) observer.observe(el);
+    return () => { if (el) observer.unobserve(el); };
   }, []);
-
-  const services = [
-    {
-      id: 1,
-      title: "Desarrollo Web",
-      description: "Creación de aplicaciones web modernas, responsivas y optimizadas con las últimas tecnologías frontend y backend.",
-      icon: (
-        <svg
-          width="40"
-          height="40"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M12 20V10" />
-          <path d="M18 20V12" />
-          <path d="M6 20V8" />
-          <path d="M3 4h18v4H3z" />
-        </svg>
-      ),
-    },
-    {
-      id: 2,
-      title: "Backend con Spring Boot",
-      description: "Desarrollo de APIs REST robustas y escalables con Java y Spring Boot, integradas con bases de datos relacionales.",
-      icon: (
-        <svg
-          width="40"
-          height="40"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-          <path d="M3.27 6.96L12 12.01l8.73-5.05" />
-          <path d="M12 22.08V12" />
-        </svg>
-      ),
-    },
-    {
-      id: 3,
-      title: "Bases de Datos",
-      description: "Diseño, administración y optimización de bases de datos SQL Server, PostgreSQL y MySQL para aplicaciones empresariales.",
-      icon: (
-        <svg
-          width="40"
-          height="40"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <ellipse cx="12" cy="5" rx="9" ry="3" />
-          <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
-          <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
-        </svg>
-      ),
-    },
-  ];
 
   return (
     <section
@@ -102,7 +52,6 @@ export function Services() {
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
-      {/* Animación de fondo flotante */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-2 h-32 bg-gray-900/20 rounded-full animate-float" style={{ animationDelay: "0s", animationDuration: "3s" }} />
         <div className="absolute top-40 right-20 w-1 h-24 bg-gray-900/20 rounded-full animate-float" style={{ animationDelay: "1s", animationDuration: "4s" }} />
@@ -117,7 +66,10 @@ export function Services() {
       <div className="max-w-7xl w-full relative z-10">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 sm:mb-4">
-            Mis <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-600">Servicios</span>
+            Mis{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-600">
+              Servicios
+            </span>
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
             Lo que puedo hacer por ti
@@ -129,18 +81,14 @@ export function Services() {
             <div
               key={service.id}
               className={`group relative bg-white rounded-3xl p-8 border border-gray-200 shadow-lg hover:shadow-2xl hover:border-gray-900 transition-all duration-500 hover:-translate-y-3 transform overflow-hidden ${
-                isVisible
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
               }`}
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
-              {/* Decorative background element */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gray-900/5 to-transparent rounded-full blur-2xl group-hover:from-gray-900/10 transition-colors duration-500" />
-              
               <div className="relative z-10">
                 <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-gray-900 to-gray-700 rounded-2xl flex items-center justify-center text-white mb-4 sm:mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg mx-auto md:mx-0">
-                  {service.icon}
+                  {serviceIcons[service.icon]}
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-black transition-colors text-center md:text-left">
                   {service.title}
@@ -154,23 +102,11 @@ export function Services() {
         </div>
 
         <div className="flex justify-center mt-12 sm:mt-16 animate-fade-up" style={{ animationDelay: "0.5s" }}>
-          <a 
-            href="https://www.instagram.com/jhonalexlunacanchihuaman/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <a
+            href="#contacto"
             className="group bg-white border-2 border-black text-black px-6 py-3 sm:px-10 sm:py-5 rounded-full flex items-center gap-2 sm:gap-3 hover:bg-black hover:text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer text-base sm:text-lg font-semibold"
           >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="group-hover:translate-x-1 transition-transform"
-            >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
               <path d="M5 12h14" />
               <polyline points="12 5 19 12 12 19" />
             </svg>
@@ -181,4 +117,3 @@ export function Services() {
     </section>
   );
 }
-

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { personalInfo, stats } from "@/data/portfolio";
 
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,75 +15,71 @@ export function Hero() {
       isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
     }`}>
       <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
-        {/* Columna izquierda - Información */}
         <div className="space-y-6 sm:space-y-8 animate-fade-up text-center lg:text-left">
           <div className="space-y-3 sm:space-y-4">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight transform transition-all duration-700 hover:scale-105">
               Hola, soy{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-600 animate-pulse">
-                Jhon Alex
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-600">
+                {personalInfo.firstName}
               </span>
             </h1>
 
             <div className="relative animate-fade-up-delay-200 flex justify-center lg:justify-start">
               <div className="text-xl sm:text-2xl md:text-3xl font-mono font-bold text-gray-900 bg-gradient-to-r from-gray-50 to-gray-100 px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 rounded-lg border border-gray-200 shadow-sm inline-block whitespace-nowrap">
-                Desarrollador de Software
+                {personalInfo.title}
               </div>
             </div>
           </div>
 
           <p className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light tracking-wide transform transition-all duration-700 hover:translate-x-2 hover:text-gray-900">
-            Soy <span className="font-semibold text-gray-900 bg-gradient-to-r from-gray-100 to-transparent px-2 py-1 rounded">Jhon Alex</span>, desarrollador de software en constante evolución. Mi
-            formación técnica en Cibertec me ha permitido consolidar una base
-            sólida en el ciclo de vida de desarrollo de software.
+            {personalInfo.bio}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-up-delay-400 justify-center lg:justify-start">
-            <a 
-              href="https://www.instagram.com/jhonalexlunacanchihuaman/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <a
+              href="#contacto"
               className="group bg-white border-2 border-black text-black px-6 py-3 sm:px-8 sm:py-4 rounded-full flex items-center justify-center gap-2 sm:gap-3 hover:bg-black hover:text-white hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-lg hover:shadow-2xl cursor-pointer text-sm sm:text-base"
             >
               <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                 className="group-hover:translate-x-1 transition-transform"
               >
                 <path d="M5 12h14" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
-              <span className="font-medium">Contratar</span>
+              <span className="font-medium">Contactar</span>
             </a>
-            <a 
-              href="/cv.pdf" 
+            <a
+              href="/cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="group bg-black text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full flex items-center justify-center gap-2 sm:gap-3 hover:bg-gray-800 hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-lg hover:shadow-2xl cursor-pointer text-sm sm:text-base"
             >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="group-hover:translate-y-1 transition-transform"
-            >
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            <span className="font-medium">Descargar CV</span>
-          </a>
+              <svg
+                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                className="group-hover:translate-y-1 transition-transform"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              <span className="font-medium">Descargar CV</span>
+            </a>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 animate-fade-up-delay-500">
+            {stats.map((stat, index) => (
+              <div
+                key={index}
+                className="bg-white border border-gray-200 rounded-2xl p-3 sm:p-4 text-center shadow-sm hover:shadow-md hover:border-gray-900 transition-all duration-300 hover:-translate-y-1"
+                style={{ animationDelay: `${0.5 + index * 0.05}s` }}
+              >
+                <div className="text-xl sm:text-2xl font-bold text-gray-900">{stat.value}</div>
+                <div className="text-xs text-gray-500 mt-1">{stat.label}</div>
+              </div>
+            ))}
           </div>
 
           <div className="border-t border-gray-200 pt-6 sm:pt-8 transform transition-all duration-500 hover:border-gray-300">
@@ -90,48 +87,18 @@ export function Hero() {
               Sígueme
             </p>
             <div className="flex gap-4 justify-center lg:justify-start">
-              <a
-                href="https://www.instagram.com/jhonalexlunacanchihuaman/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-pink-500 transition-all hover:scale-125 hover:rotate-12 transform duration-300"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
+              <a href={personalInfo.social.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-pink-500 transition-all hover:scale-125 hover:rotate-12 transform duration-300">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                 </svg>
               </a>
-              <a
-                href="https://www.linkedin.com/in/jhon-luna-451206315/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-blue-600 transition-all hover:scale-125 hover:rotate-12 transform duration-300"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
+              <a href={personalInfo.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600 transition-all hover:scale-125 hover:rotate-12 transform duration-300">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                 </svg>
               </a>
-              <a
-                href="https://github.com/JhonLunaDev"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-gray-900 transition-all hover:scale-125 hover:rotate-12 transform duration-300"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
+              <a href={personalInfo.social.github} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 transition-all hover:scale-125 hover:rotate-12 transform duration-300">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                 </svg>
               </a>
@@ -139,16 +106,11 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Columna derecha - Imagen */}
         <div className="flex justify-center lg:justify-end animate-fade-up-delay-600">
           <div className="group relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[32rem] lg:h-[32rem] xl:w-[36rem] xl:h-[36rem]">
             <div className="absolute inset-0 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-200 rounded-3xl shadow-2xl transform group-hover:scale-105 transition-transform duration-300 border border-gray-100" />
             <div className="absolute inset-3 sm:inset-4 rounded-2xl overflow-hidden pointer-events-none">
-              <img
-                src="/me.jpg"
-                alt="Jhon Alex"
-                className="w-full h-full object-contain"
-              />
+              <img src="/me.jpg" alt={personalInfo.firstName} className="w-full h-full object-contain" />
             </div>
           </div>
         </div>
@@ -156,4 +118,3 @@ export function Hero() {
     </section>
   );
 }
-

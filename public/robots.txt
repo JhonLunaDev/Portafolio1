@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://portafolio1-nine-zeta.vercel.app/sitemap.xml
