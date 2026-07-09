@@ -56,7 +56,7 @@ export function Contact() {
             <input
               type="text"
               id="name"
-              name="user_name"
+              name="nombre"
               required
               className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10 outline-none transition-all duration-200 text-gray-900 placeholder-gray-400"
               placeholder="Tu nombre"
@@ -70,7 +70,7 @@ export function Contact() {
             <input
               type="email"
               id="email"
-              name="user_email"
+              name="email"
               required
               className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10 outline-none transition-all duration-200 text-gray-900 placeholder-gray-400"
               placeholder="tu@email.com"
@@ -83,7 +83,7 @@ export function Contact() {
             </label>
             <textarea
               id="message"
-              name="message"
+              name="title"
               required
               rows={5}
               className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10 outline-none transition-all duration-200 resize-none text-gray-900 placeholder-gray-400"
